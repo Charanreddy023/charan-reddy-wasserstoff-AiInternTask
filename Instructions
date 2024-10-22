@@ -1,0 +1,26 @@
+Explanation of the Code
+
+Libraries Used:
+fitz (PyMuPDF) for reading PDF files.
+pymongo for interacting with the MongoDB database.
+concurrent.futures for parallel processing of multiple PDFs.
+logging for error handling and logging messages.
+
+Functions:
+clean_text(text): Cleans and preprocesses the text by converting it to lowercase and removing non-word characters.
+generate_summary(text, num_pages): Generates a summary based on the number of pages in the PDF.
+extract_keywords(text): Extracts domain-specific keywords, filtering out common words.
+process_pdf(file_path): Reads a PDF file, generates a summary and keywords, and stores the result in MongoDB.
+main(folder_path): Processes all PDF files in the specified folder concurrently.
+
+Concurrency:
+The ProcessPoolExecutor is used to handle multiple PDFs at the same time, optimizing resource usage and improving speed.
+
+Error Handling:
+Errors during PDF processing are logged, and the program continues without crashing.
+
+MongoDB Integration:
+Each PDF's metadata, summary, and keywords are stored in a MongoDB collection.
+
+Testing and Performance
+You should run tests with a variety of PDF files
